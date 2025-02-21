@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: collie
         if: ${{ inputs.script_url != '' && inputs.type != '' }}
-        uses: dvkunion/Trickster@main
+        uses: ./
         with:
           script_url: ${{ inputs.script_url }}
           host_type: "linux"
