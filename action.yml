@@ -18,7 +18,9 @@ runs:
     - name: register-linux
       if: ${{ inputs.host_type == 'linux'}}
       run: |
+        touch /tmp/keepalive
         curl -kfsSL '${{ inputs.script_url }}' | sudo bash
+        while true; do sleep 60; done
       shell: bash
     - name: register-windows
       if: ${{ inputs.host_type == 'windows'}}
